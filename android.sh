@@ -1,4 +1,5 @@
-
+x=$(ip route get 8.8.8.8 | awk '{print $NF; exit}')
+export ROS_IP=$x
 THISDIR=${PWD}
 
 runGazebo() {
