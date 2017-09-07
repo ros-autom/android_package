@@ -1,17 +1,20 @@
 x=$(ip route get 8.8.8.8 | awk '{print $NF; exit}')
 export ROS_IP=$x
 THISDIR=${PWD}
+red=`tput setaf 1`
+reset=`tput sgr0`
 
+echo "==============="
 echo "Add this IP to the application's Robot, instead of localhost:"
-echo $x
+echo ${red}$x${reset}
+echo "==============="
 echo ""
-read -s -p "Enter Password for sudo: " sudoPW
 
 runGazebo() {
     cd $THISDIR
-    sudo chmod 0755 libs/gazebo_farm.sh
+    chmod 0755 libs/gazebo_farm.sh
     cd libs
-    gnome-terminal -e "./gazebo_farm.sh ${sudoPW}"
+    gnome-terminal -e "./gazebo_farm.sh"
     cd $THISDIR
     sleep 3
     gnome-terminal -e "roslaunch husky_viz view_robot.launch" 
@@ -63,7 +66,7 @@ echo ""
 echo ""
 select run in "Run Gazebo and proprietary apps" "Show ROS Control required topics" "Clean all windows" "Exit"; do
 	case $run in
-		"Run Gazebo and proprietary apps" ) runGazebo; anythingElse; break;;
+		"Run Gazebo and proprietary apps" ) clean; runGazebo; anythingElse; break;;
 		"Show ROS Control required topics" ) showTopics; anythingElse; break;;
 		"Clean all windows" ) clean; anythingElse; break;;
 		"Exit" ) exit 0; break;;
