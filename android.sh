@@ -2,10 +2,10 @@ x=$(ip route get 8.8.8.8 | awk '{print $NF; exit}')
 export ROS_IP=$x
 THISDIR=${PWD}
 
+read -s -p "Enter Password for sudo: " sudoPW
+
 runGazebo() {
     cd $THISDIR
-    read -s -p "Enter Password for sudo: " sudoPW
-
     sudo chmod 0755 libs/gazebo_farm.sh
     cd libs
     gnome-terminal -e "./gazebo_farm.sh ${sudoPW}"
@@ -43,12 +43,6 @@ showTopics() {
    cd $THISDIR
    
 }
-addHost() {
-   cd $THISDIR
-   sudo chmod 777 libs/addHost
-   cd $THISDIR && cd libs
-   gnome-terminal -e "./addHost"
-}
 anythingElse() {
     echo " "
     echo " "
@@ -63,11 +57,10 @@ anythingElse() {
 
 
 
-select run in "Run Gazebo and proprietary apps" "Show ROS Control required topics" "Add Android's device host name to ROS computer" "Clean all windows" "Exit"; do
+select run in "Run Gazebo and proprietary apps" "Show ROS Control required topics" "Clean all windows" "Exit"; do
 	case $run in
 		"Run Gazebo and proprietary apps" ) runGazebo; anythingElse; break;;
 		"Clean all windows" ) clean; anythingElse; break;;
-		"Add Android's device host name to ROS computer" ) addHost; anythingElse; break;;
 		"Show ROS Control required topics" ) showTopics; anythingElse; break;;
 		"Exit" ) exit 0; break;;
 	esac
