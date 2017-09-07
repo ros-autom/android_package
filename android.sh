@@ -2,7 +2,7 @@ x=$(ip route get 8.8.8.8 | awk '{print $NF; exit}')
 export ROS_IP=$x
 THISDIR=${PWD}
 
-echo "Add this IP to the application's Robot:"
+echo "Add this IP to the application's Robot, instead of localhost:"
 echo $x
 echo ""
 read -s -p "Enter Password for sudo: " sudoPW
@@ -59,13 +59,13 @@ anythingElse() {
 }
 
 
-
+echo ""
+echo ""
 select run in "Run Gazebo and proprietary apps" "Show ROS Control required topics" "Clean all windows" "Exit"; do
 	case $run in
 		"Run Gazebo and proprietary apps" ) runGazebo; anythingElse; break;;
 		"Show ROS Control required topics" ) showTopics; anythingElse; break;;
 		"Clean all windows" ) clean; anythingElse; break;;
-		
 		"Exit" ) exit 0; break;;
 	esac
 done
