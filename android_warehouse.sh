@@ -20,6 +20,7 @@ runGazebo() {
   #  gnome-terminal -e "roslaunch husky_viz view_robot.launch" 
    # gnome-terminal -e "roslaunch husky_navigation amcl_demo.launch" 
     gnome-terminal -e "rosrun image_transport republish compressed in:=camera/rgb/image_raw out:=image_raw"
+    gnome-terminal -e "rosrun simple_navigation_goals box_picking"
 }
 
 clean() {
