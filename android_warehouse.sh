@@ -14,7 +14,7 @@ runGazebo() {
     cd $THISDIR
     chmod 0755 libs/gazebo_farm.sh
     cd libs
-    gnome-terminal -e "./gazebo_farm.sh"
+    gnome-terminal -e "./gazebo_warehouse.sh"
     cd $THISDIR
     #sleep 3
   #  gnome-terminal -e "roslaunch husky_viz view_robot.launch" 

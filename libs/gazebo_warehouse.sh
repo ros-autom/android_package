@@ -1,8 +1,8 @@
 #!/bin/bash
 
-roslaunch husky_gazebo husky_farm.launch laser_enabled:=false kinect_enabled:=true slam_laser_enabled:=true
+#roslaunch husky_gazebo husky_farm.launch laser_enabled:=false kinect_enabled:=true slam_laser_enabled:=true
 
-#gnome-terminal -e "roslaunch husky_gazebo husky_warehouse.launch laser_enabled:=false kinect_enabled:=true slam_laser_enabled:=true"
+gnome-terminal -e "roslaunch husky_gazebo husky_warehouse.launch laser_enabled:=false kinect_enabled:=true slam_laser_enabled:=true"
 
 #sleep 3
 #gnome-terminal -e "roslaunch find_object_2d find_object_3d.launch static_objects:=true sim_mode:=true slam_mode:=true"
