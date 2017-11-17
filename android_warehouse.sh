@@ -60,7 +60,7 @@ anythingElse() {
     echo "Anything else?"
     select more in "Yes" "No"; do
         case $more in
-            Yes ) bash ${THISDIR}/android.sh; break;;
+            Yes ) bash ${THISDIR}/android_warehouse.sh; break;;
             No ) exit 0; break;;
         esac
     done ;
