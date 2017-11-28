@@ -12,8 +12,8 @@ echo ""
 
 runGazebo() {
     cd $THISDIR
-    chmod 0755 libs/gazebo_farm.sh
     cd libs
+    chmod 0755 gazebo_warehouse.sh
     gnome-terminal -e "./gazebo_warehouse.sh"
     cd $THISDIR
     #sleep 3
@@ -48,7 +48,7 @@ clean() {
 
 showTopics() {
    cd $THISDIR
-   sudo chmod 0755 libs/showTopics.sh
+   sudo chmod 0755  ~/ros/husky_kinetic/android/android_packages/libs/showTopics.sh
    cd libs
    gnome-terminal -e "./showTopics.sh"
    cd $THISDIR
